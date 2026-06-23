@@ -1,0 +1,6 @@
+# The core solution (app/taskutils.py, demo.py) uses ONLY the Python standard
+# library, so no installation is required to run it.
+#
+# python-dotenv is OPTIONAL and only enhances Exercise C (scripts/check_config.py):
+# it lets the script read a local .env file. The script runs fine without it.
+python-dotenv>=1.0.0
