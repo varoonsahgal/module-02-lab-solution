@@ -38,3 +38,22 @@ def test_parse_task_whitespace_only_title_raises():
 def test_parse_task_uppercase_priority_is_normalized():
     result = parse_task({"title": "Ship it", "priority": "HIGH"})
     assert result["priority"] == "high"   # normalized to lowercase
+
+# Without fixtures — repetitive setup
+def test_sort_tasks_puts_high_first():
+    tasks = [
+        {"title": "A", "priority": "low"},
+        {"title": "B", "priority": "high"},
+        {"title": "C", "priority": "medium"},
+    ]
+    result = sort_tasks(tasks)
+    assert result[0]["priority"] == "high"
+
+def test_high_priority_titles_returns_high_only():
+    tasks = [                             # ← identical setup repeated
+        {"title": "A", "priority": "low"},
+        {"title": "B", "priority": "high"},
+        {"title": "C", "priority": "medium"},
+    ]
+    result = high_priority_titles(tasks)
+    assert result == ["B"]
